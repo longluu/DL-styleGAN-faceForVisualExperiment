@@ -14,5 +14,5 @@ Note that the generation code download pretrained model from the official style-
 ## Quantifying the magnitude of high-level change with FaceNet 
 Then the question is how to quantify the magnitude of low vs high-level change
 - image_preprocessing: Compute the pixel-level (low-level) differences of low and high-level changes. Also, try contrast normalization and flip. Note that the images are assumed to be in "Images" folder.
-- FaceNet: Quantify high-level differences (presumably identity) by FaceNet. I use an InceptionResnetV1 pretrained on MS-CELEB-1M dataset (10 million face images). The output of FaceNet is an embedding vector (128 dimensions) that is supposed to represent high-level features.
+- FaceNet: Quantify high-level differences (presumably identity) by FaceNet. I use an InceptionResnetV1 pretrained on MS-CELEB-1M dataset (10 million face images) with triplet loss (the main idea behind FaceNet). The output of FaceNet is an embedding vector (128 dimensions) that is supposed to represent high-level features.
 - PCA: explore how much information needed to represent the face images.
