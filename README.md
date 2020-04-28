@@ -1,7 +1,7 @@
 # DL-styleGAN-faceForVisualExperiment
 Create fake but look-like-real face images for visual experiment (e.g. visual psychophysics, visual neuroscience).
 
-For walkthrough of basic workings and example results, see the file "slides.pdf"
+For walkthrough of basic workings and example results, see the file "slides.pdf".
 
 ## Manipulate a low-level (skin tone, hair color, eye color) or high-level features (identity) while keeping the others constant
 Key point: use a pretrained style-GAN model to manipulate a low or high-level feature of face images while keeping other features constant.
