@@ -5,10 +5,31 @@ Studies of how human brain processes visual information (visual psychophysics, v
 * Quantify the attributes in the images.
 
 # Problem 1: Create random look-like-real face images
+![](/figures/stylegan_base.PNG)
+
 ![](/figures/example_fake_face.PNG)
 
 # Problem 2: Manipulate a feature while keeping others constant
+![](/figures/face_manipulation.PNG)
+
+![](/figures/stylegan_high.PNG)
+![](/figures/stylegan_low.PNG)
+
+![](/figures/example_face_mixing.png)
 
 # Problem 3: Quantify the attributes in the image
+## Low-level attributes
+![](/figures/example_pixelDiff_pca.png)
+![](/figures/example_lowlevel_pca_more.png)
+![](/figures/l2_lowChange.png)
+![](/figures/histogram_low_high_flip.png)
+
+## High-level attributes
+![](/figures/facenet_architecture.PNG)
+![](/figures/example_facenet_pca.png)
+![](/figures/example_facenet_pca_more.png)
+![](/figures/l2_highChange.png)
+
+
 
 
