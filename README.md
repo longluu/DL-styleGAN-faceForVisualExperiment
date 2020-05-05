@@ -29,12 +29,16 @@ An implementation detail: there are 18 rows in the embedding **w** so in theory 
 The first column is the original image and the first row is the mixing image that I want to mix a low- or high-level feature into the original image. In the second row, I mix low-level features of the mixing image into the original image (layers 8-17). In the third row, I mix high-level features (layers 2-3). In the fourth row, I used layers 0-3, also for high-level feature change. We see that the mixing works pretty well. One thing I note is that it seems like the last 2 layers (0-1) control for the pose. So for high-level change, I decided to use only layers 2-3 and for low-level change I used layers 8-17.
 
 # Problem 3: Quantify the attributes in the image
-Now we see that by visual inspection, the manipulation of low- or high-level features work pretty well. However, we want a more quantitative metric to measure how much change we have made to the original image. Importantly, we want to quantify either a low-level or high-level change.
+Now we see that by visual inspection, the manipulation of low- or high-level features work pretty well. However, we want a more quantitative metric to measure how much change we have made to the original image. Importantly, we want to quantify either a low-level or high-level change. The general problem here is what image representation space we should use to compute the measure. 
 
 ## Low-level attributes
-For low-level change, a natural measure is simply pixel-level difference between images. But first let make some visualization.
+For low-level change, a natural space is simply the original space of the raw image, i.e. the pixel intensity. For the high-resolution images we use here (1024x1024x3), the space is really large (3 million dimensional). So let's do some PCA to reduce the dimensionality to 3 so we can make some visualization. In the example below, I show the result for 1 original image (green dot), the low-level-changed images (blue dots) and high-level-changed images (orange dots).
 ![](/figures/example_pixelDiff_pca.png)
+
+The result is pretty much the ideal case in which the high-level-changed images stay pretty close to the original and they tend to clutter around a small region. On the other hand, the low-level-changed images are farther away from the original and they tend to spread out a lot. However, this pattern is not that clear when we look at more examples:
 ![](/figures/example_lowlevel_pca_more.png)
+
+It seems like the only thing that seems to hold is that low-level-changed images tend to spread out more and lie on more complex manifolds than the high-level-changed images, which somewhat support the target manipulation.
 ![](/figures/l2_lowChange.png)
 ![](/figures/histogram_low_high_flip.png)
 
