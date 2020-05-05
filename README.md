@@ -1,23 +1,13 @@
-# DL-styleGAN-faceForVisualExperiment
-Create fake but look-like-real face images for visual experiment (e.g. visual psychophysics, visual neuroscience).
+# Motivation
+Studies of how human brain processes visual information (visual psychophysics, visual neuroscience) often use simple visual stimuli (lines, simple shapes, etc.). Although there are studies on more naturalistic stimuli such as face or natural scenes, they are pretty limited because it is difficult to manipulate, quantify and control the complex high-dimensional attributes of those stimuli. In this project, I aim to solve several of those problems using the state-of-the-arts deep learning methods. I will focus on face stimuli although this can be applied readily to other kinds of stimuli. Here's the summary of the problems:
+* Create random look-like-real fake faces. In visual experiments, people either use real face images or synthetic images. For real face images, that does not meet the gold standard of randomization in experiment. For synthetic images, they often don't look like real.
+* Manipulate a certain feature in the image (e.g. gender) while keeping all other features the same. Again, this is the gold standard of experimental design but it's really hard to do with the standard image processing techniques (think of Photoshop or even GIMP).
+* Quantify the attributes in the images.
 
-For walkthrough of basic workings and example results, see the file "slides.pdf".
+# Problem 1: Create random look-like-real face images
 
-## Manipulate a low-level (skin tone, hair color, eye color) or high-level features (identity) while keeping the others constant
-Key point: use a pretrained style-GAN model to manipulate a low or high-level feature of face images while keeping other features constant.
+# Problem 2: Manipulate a feature while keeping others constant
 
-Note that the generation code download pretrained model from the official style-GAN github. Otherwise, use the dnnlib.
+# Problem 3: Quantify the attributes in the image
 
-- generate_stimulus_1: display generated images for exploration
-- generate_stimulus_2: save generated images to google drive
 
-![](/figures/example_face.png)
-
-## Quantifying the magnitude of high-level change with FaceNet 
-Then the question is how to quantify the magnitude of low vs high-level change
-- image_preprocessing: Compute the pixel-level (low-level) differences of low and high-level changes. Also, try contrast normalization and flip. Note that the images are assumed to be in "Images" folder.
-- FaceNet: Quantify high-level differences (presumably identity) by FaceNet. I use an InceptionResnetV1 pretrained on MS-CELEB-1M dataset (10 million face images) with triplet loss (the main idea behind FaceNet). The output of FaceNet is an embedding vector (128 dimensions) that is supposed to represent high-level features.
-
-![](/figures/example_faceNet.png)
-
-- PCA: explore how much information needed to represent the face images.
