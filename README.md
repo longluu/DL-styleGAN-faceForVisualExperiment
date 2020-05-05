@@ -5,6 +5,7 @@ Studies of how human brain processes visual information (visual psychophysics, v
 * Quantify the attributes in the images.
 
 # Problem 1: Create random look-like-real face images
+To generate fake face images, we use the [style-GAN](https://github.com/NVlabs/stylegan) pretrained network from Nvidia group. The details can be found in their paper and the github page. Here I just provide brief summary of key points.
 ![](/figures/stylegan_base.PNG)
 
 ![](/figures/example_fake_face.PNG)
