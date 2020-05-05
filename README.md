@@ -5,7 +5,7 @@ Studies of how human brain processes visual information (visual psychophysics, v
 * Quantify the attributes in the images.
 
 # Problem 1: Create random look-like-real face images
-![](/figures/example_fake_face.png)
+![](/figures/example_fake_face.PNG)
 
 # Problem 2: Manipulate a feature while keeping others constant
 
