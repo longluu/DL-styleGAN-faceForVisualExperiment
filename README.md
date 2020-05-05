@@ -26,9 +26,10 @@ We can do the same to manipulate low-level feature while keeping high-level feat
 An implementation detail: there are 18 rows in the embedding **w** so in theory we have 18 levels of representation from high to low. However, first the layers come in pair (you can see in the image above that there are 2 style arrows in each box). So we are left with only 8 degrees of freedom. Moreover, I tried it out and actually most intermediate layers don't do much. So here I show the mixing result for only some combinations that I found work well. 
 ![](/figures/example_face_mixing.png)
 
-The first column is the original image and the first row is the mixing image that I want to mix a low- or high-level feature into the original image. In the second row, I mix low-level features of the mixing image into the original image (layers 8-17). In the third and fourth rows, I mix high-level features (layers 2-3 or 0-3). We see that the mixing works pretty well. One thing I note is that it seems like the last 2 layers (0-1) control for the pose. So for high-level change, I decided to use only layers 2-3 and for low-level change I used layers 8-17.
+The first column is the original image and the first row is the mixing image that I want to mix a low- or high-level feature into the original image. In the second row, I mix low-level features of the mixing image into the original image (layers 8-17). In the third row, I mix high-level features (layers 2-3). In the fourth row, I used layers 0-3, also for high-level feature change. We see that the mixing works pretty well. One thing I note is that it seems like the last 2 layers (0-1) control for the pose. So for high-level change, I decided to use only layers 2-3 and for low-level change I used layers 8-17.
 
 # Problem 3: Quantify the attributes in the image
+Now we see that by visual inspection, the 
 ## Low-level attributes
 ![](/figures/example_pixelDiff_pca.png)
 ![](/figures/example_lowlevel_pca_more.png)
